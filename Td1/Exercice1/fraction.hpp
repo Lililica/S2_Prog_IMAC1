@@ -53,7 +53,11 @@ bool operator>=(Fraction const& frac1, Fraction const& frac2);
 std::ostream& operator<<(std::ostream& os, Fraction const& frac);
 
 Fraction operator+(const Fraction& f, int const i);
+Fraction operator+(int const i, const Fraction& f);
 Fraction operator-(const Fraction& f, int const i);
+Fraction operator-(int const i, const Fraction& f);
 Fraction operator*(const Fraction& f, int const i);
+Fraction operator*(int const i, const Fraction& f);
 Fraction operator/(const Fraction& f, int const i);
+Fraction operator/(int const i, const Fraction& f);
 

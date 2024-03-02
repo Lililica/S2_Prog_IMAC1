@@ -133,7 +133,17 @@ Fraction operator+(const Fraction& f, int const i){
     return simplify(Fraction{f.numerateur + frac_bis.numerateur, f.denominateur});
 }
 
+Fraction operator+(int const i, const Fraction& f){
+    Fraction frac_bis{i*f.denominateur, f.denominateur};
+    return simplify(Fraction{f.numerateur + frac_bis.numerateur, f.denominateur});
+}
+
 Fraction operator-(const Fraction& f, int const i){
+    Fraction frac_bis{i*f.denominateur, f.denominateur};
+    return simplify(Fraction{f.numerateur - frac_bis.numerateur, f.denominateur});
+}
+
+Fraction operator-(int const i, const Fraction& f){
     Fraction frac_bis{i*f.denominateur, f.denominateur};
     return simplify(Fraction{f.numerateur - frac_bis.numerateur, f.denominateur});
 }
@@ -142,9 +152,18 @@ Fraction operator*(const Fraction& f, int const i){
     return simplify(Fraction{f.numerateur*i, f.denominateur});
 }
 
+Fraction operator*(int const i, const Fraction& f){
+    return simplify(Fraction{f.numerateur*i, f.denominateur});
+}
+
 Fraction operator/(const Fraction& f, int const i){
     return simplify(Fraction{f.numerateur, f.denominateur * i});
 }
+
+Fraction operator/(int const i,const Fraction& f){
+    return simplify(Fraction{f.numerateur, f.denominateur * i});
+}
+
 
 Fraction& Fraction::abs(){
     bool is_Num_Negatif{numerateur < 0};

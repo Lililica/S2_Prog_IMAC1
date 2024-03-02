@@ -68,6 +68,6 @@ int main(){
     std::cout << "f3.round() : " << f3.round() << std::endl;
     std::cout << "f1.round() : " << f1.round() << std::endl;
     std::cout << "Fraction{2, 5}.round() : " << Fraction{2, 5}.round() << std::endl;
-
+    std::cout << "Fraction{3, 5}.round() : " << Fraction{3, 5}.round() << std::endl;
 
 }

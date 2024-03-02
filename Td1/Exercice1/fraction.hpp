@@ -15,12 +15,12 @@ struct Fraction
     // void Fraction::mul(Fraction & frac1, Fraction & frac2);
     // void Fraction::div(Fraction & frac1, Fraction & frac2);
 
-    Fraction& operator+=(Fraction & frac);
+    Fraction& operator+=(Fraction const& frac);
 
-    Fraction& operator-=(Fraction & frac);
+    Fraction& operator-=(Fraction const& frac);
 
-    Fraction& operator*=(Fraction & frac);
-    Fraction& operator/=(Fraction & frac);
+    Fraction& operator*=(Fraction const& frac);
+    Fraction& operator/=(Fraction const& frac);
 
     float to_float();
     operator float() const;
@@ -35,20 +35,20 @@ struct Fraction
 
 // Fraction::operator float() const;
 
-void display(Fraction frac);
+void display(Fraction const& frac);
 
-Fraction operator+(Fraction & frac1, Fraction & frac2);
-Fraction operator-(Fraction & frac1, Fraction & frac2);
-Fraction operator*(Fraction & frac1, Fraction & frac2);
-Fraction operator/(Fraction & frac1, Fraction & frac2);
+Fraction operator+(Fraction const& frac1, Fraction const& frac2);
+Fraction operator-(Fraction const& frac1, Fraction const& frac2);
+Fraction operator*(Fraction const& frac1, Fraction const& frac2);
+Fraction operator/(Fraction const& frac1, Fraction const& frac2);
 
-bool operator==(Fraction frac1, Fraction frac2);
-bool operator!=(Fraction frac1, Fraction frac2);
+bool operator==(Fraction const& frac1, Fraction const& frac2);
+bool operator!=(Fraction const& frac1, Fraction const& frac2);
 
-bool operator<(Fraction frac1, Fraction frac2);
-bool operator<=(Fraction frac1, Fraction frac2);
-bool operator>(Fraction frac1, Fraction frac2);
-bool operator>=(Fraction frac1, Fraction frac2);
+bool operator<(Fraction const& frac1, Fraction const& frac2);
+bool operator<=(Fraction const& frac1, Fraction const& frac2);
+bool operator>(Fraction const& frac1, Fraction const& frac2);
+bool operator>=(Fraction const& frac1, Fraction const& frac2);
 
 std::ostream& operator<<(std::ostream& os, Fraction const& frac);
 

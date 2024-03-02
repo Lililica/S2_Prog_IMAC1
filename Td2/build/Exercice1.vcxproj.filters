@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Lucas\Documents\Prog_C++\S2_cpp\S2_Prog_IMAC1\Td2\Exercice1\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Lucas\Documents\Prog_C++\S2_cpp\S2_Prog_IMAC1\Td2\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{BA2805A5-ACF5-380C-BEE8-DC0937E3FBCE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

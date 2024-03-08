@@ -49,7 +49,7 @@ int main(){
     bubble_sort(array);
     display_sorted(array);
 
-    std::vector<float> vecFloat = {24.5, 2, 3, 17, 8.1, 16.8, 6, 18};
+    std::vector<float> vecFloat = {24.5, 2, 3, 17, 8.1, 16.8, 6, 18, 1};
     display_sorted(vecFloat);
 
     std::cout << std::endl;

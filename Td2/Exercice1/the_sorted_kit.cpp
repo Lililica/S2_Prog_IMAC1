@@ -43,15 +43,16 @@ void displayVec(std::vector<float> const& vec){
 }
 
 void merge_sort(std::vector<float> & vec, size_t const left, size_t const right){
+    int middle {(right-left)/2};
     if(right - left > 1){
         std::cout << "-> Je rentre dans la sous fonction de taille : " << right - left + 1<< std::endl;
-        if(right - left < 100){
-            merge_sort(vec, left, left + (right-left)/2);
-            // std::cout << "left + 1 + right/2 : " << left + 1 + right/2 << std::endl;
-            // std::cout << "right : " << right << std::endl;
 
-            merge_sort(vec, left + 1 + (right-left)/2 , right);
-        }
+        merge_sort(vec, left, left + middle);
+        // std::cout << "left + 1 + right/2 : " << left + 1 + right/2 << std::endl;
+        // std::cout << "right : " << right << std::endl;
+
+        merge_sort(vec, left + 1 + middle , right);
+    
 
     }
 
@@ -60,10 +61,10 @@ void merge_sort(std::vector<float> & vec, size_t const left, size_t const right)
     // std::cout << "right : " << right << std::endl;
     std::vector<float> vecCopy = vec;
     int indicePivotFirst = left;
-    int indicePivotSecond = left + ((right-left)/2) + 1;
+    int indicePivotSecond = left + middle + 1;
 
     for(size_t i{left}; i < right + 1; i++){
-        if((indicePivotFirst < left + ((right-left)/2) + 1) && (indicePivotSecond < right + 1)){
+        if((indicePivotFirst < left + middle + 1) && (indicePivotSecond < right + 1)){
             if(vecCopy[indicePivotFirst] > vecCopy[indicePivotSecond]){
                 vec[i] = vecCopy[indicePivotSecond];
                 indicePivotSecond += 1;

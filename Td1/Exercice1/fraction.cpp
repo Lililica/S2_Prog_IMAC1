@@ -120,12 +120,12 @@ Fraction& Fraction::operator/=(Fraction const& frac){
     return *this;
 }
 
-float Fraction::to_float(){
-    return (float(numerateur)/float(denominateur));
+float Fraction::to_float() const{
+    return (static_cast<float>(numerateur)/static_cast<float>(denominateur));
 }
 
-Fraction::operator float() const{
-    return static_cast<float>(numerateur)/static_cast<float>(denominateur);
+Fraction::operator float(){
+    return to_float();
 }
 
 Fraction operator+(const Fraction& f, int const i){
@@ -155,6 +155,7 @@ Fraction operator*(const Fraction& f, int const i){
 Fraction operator*(int const i, const Fraction& f){
     return simplify(Fraction{f.numerateur*i, f.denominateur});
 }
+
 
 Fraction operator/(const Fraction& f, int const i){
     return simplify(Fraction{f.numerateur, f.denominateur * i});

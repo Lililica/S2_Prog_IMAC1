@@ -22,8 +22,8 @@ struct Fraction
     Fraction& operator*=(Fraction const& frac);
     Fraction& operator/=(Fraction const& frac);
 
-    float to_float();
-    operator float() const;
+    float to_float() const;
+    operator float();
 
     Fraction& abs();
     int floor();

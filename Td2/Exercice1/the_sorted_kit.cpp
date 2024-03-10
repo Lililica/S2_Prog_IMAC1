@@ -43,9 +43,9 @@ void displayVec(std::vector<float> const& vec){
 }
 
 void merge_sort(std::vector<float> & vec, size_t const left, size_t const right){
-    int middle {(right-left)/2};
+    size_t middle {(right-left)/2};
     if(right - left > 1){
-        std::cout << "-> Je rentre dans la sous fonction de taille : " << right - left + 1<< std::endl;
+        // std::cout << "-> Je rentre dans la sous fonction de taille : " << right - left + 1<< std::endl;
 
         merge_sort(vec, left, left + middle);
         // std::cout << "left + 1 + right/2 : " << left + 1 + right/2 << std::endl;
@@ -56,7 +56,7 @@ void merge_sort(std::vector<float> & vec, size_t const left, size_t const right)
 
     }
 
-    std::cout << "-> j'attaque le tri dans un tableau de taille : " << right - left + 1 << std::endl;
+    // std::cout << "-> j'attaque le tri dans un tableau de taille : " << right - left + 1 << std::endl;
     // std::cout << "left : " << left << std::endl;
     // std::cout << "right : " << right << std::endl;
     std::vector<float> vecCopy = vec;
@@ -86,9 +86,9 @@ void merge_sort(std::vector<float> & vec, size_t const left, size_t const right)
         }
     }
 
-    std::cout << "En sortie : ";
-    displayVec(vec);
-    std::cout << std::endl;
+    // std::cout << "En sortie : ";
+    // displayVec(vec);
+    // std::cout << std::endl;
 
 }
 

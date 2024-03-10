@@ -12,3 +12,6 @@ void displayVec(std::vector<float> const& vec);
 // void quick_sort(std::vector<float> & vec);
 
 void merge_sort(std::vector<float> & vec, size_t const left, size_t const right);
+void merge_sort(std::vector<float> & vec);
+
+int search(std::vector<int> vec, int number);

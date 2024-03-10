@@ -33,7 +33,6 @@ void selection_sort(std::vector<int> & vec){
 //     quick_sort(vec, 0, vec.size() - 1);
 // }
 
-// void merge_sort_merge(std::vector<float> & vec, size_t const left, size_t const middle, size_t const right);
 void displayVec(std::vector<float> const& vec){
     std::cout << "[" ;
     for(float element : vec){
@@ -94,6 +93,32 @@ void merge_sort(std::vector<float> & vec, size_t const left, size_t const right)
 
 
 
-// void merge_sort(std::vector<float> & vec) {
-//     merge_sort(vec, 0, vec.size() - 1);
-// }
+void merge_sort(std::vector<float> & vec) {
+    merge_sort(vec, 0, vec.size() - 1);
+}
+
+int search(std::vector<int> vec, int number){
+    int left {0};
+    int right {int(vec.size()- 1)};
+    int indiceOfNumber{(right - left)/2};
+
+    while(vec[indiceOfNumber] != number){
+        int checkIfRepetition = indiceOfNumber;
+        if(vec[indiceOfNumber] < number){
+            left = indiceOfNumber + 1;
+            indiceOfNumber = indiceOfNumber + (right + 1 - left)/2;
+            if(left == right){
+                indiceOfNumber = left;
+            }
+        }
+        else{
+            right = indiceOfNumber - 1;
+            indiceOfNumber = (right + 1 - left)/2;
+        }
+        if(checkIfRepetition == indiceOfNumber){
+            return -1;
+        }
+    }
+
+    return indiceOfNumber;
+}

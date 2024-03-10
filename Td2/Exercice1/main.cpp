@@ -106,4 +106,21 @@ int main(){
     std::cout << std::endl;
     std::cout << "--------------------------------------" << std::endl;
     std::cout << std::endl;
+
+    std::cout << "Test pour la dichotomie : " << std::endl;
+
+    std::vector<int> vecTest {1, 2, 2, 3, 4, 8, 12};
+    std::cout << "Test 1 : " << search(vecTest, 8) << std::endl;
+
+    vecTest = {1, 2, 3, 3, 6, 14, 12, 15};
+    std::cout << "Test 2 : " << search(vecTest, 15) << std::endl;
+
+    vecTest = {2, 2, 3, 4, 5, 8, 12, 15, 16};
+    std::cout << "Test 3 : " << search(vecTest, 16) << std::endl;
+
+    vecTest = {5, 6, 7, 8, 9, 10, 11, 12, 13};
+    std::cout << "Test 4 : " << search(vecTest, 6) << std::endl;
+
+    vecTest = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    std::cout << "Test 5 : " << search(vecTest, 10) << std::endl;
 }

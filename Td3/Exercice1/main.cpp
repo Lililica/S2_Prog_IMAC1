@@ -4,6 +4,7 @@
 #include <sstream>
 #include <iterator>
 #include <cctype>
+#include <queue>
 
 std::vector<std::string> split_string(std::string const& s)
 {
@@ -30,6 +31,52 @@ void display_vec(std::vector<std::string> vec){
     }
 }
 
+// enum operator_name {Addition, Soustraction, Multiplication, Division};
+
+void make_the_calcul(std::queue<float> & queue, std::string const& token){
+    float resultTemp = queue.front();
+    queue.pop();
+    int const nbrItemInQueue = queue.size();
+    for(float i{0}; i < nbrItemInQueue; i++){
+        if(token == std::string{"+"}){        
+            resultTemp += queue.front();
+            queue.pop();
+        }
+        if(token == std::string{"-"}){        
+            resultTemp -= queue.front();
+            queue.pop();
+        }
+        if(token == std::string{"*"}){        
+            resultTemp *= queue.front();
+            queue.pop();
+        }
+        if(token == std::string{"/"}){        
+            resultTemp /= queue.front();
+            queue.pop();
+        }
+    }
+    queue.push(resultTemp);
+}
+
+float calcul(std::string const& input){
+    std::queue<float> queue;
+    std::vector<std::string> mySplitString {split_string(input)};
+
+    if(mySplitString == std::vector<std::string>{}){
+        return 0;
+    }
+
+    for(std::string token : mySplitString){
+        if(is_floating(token)){
+            queue.push(std::stof(token));
+        }else{
+            make_the_calcul(queue, token);
+        }
+    }
+
+    return queue.front();
+}
+
 int main(){
     std::cout << "Exercice 1 - Td3" << std::endl;
     std::cout << std::endl;
@@ -46,5 +93,10 @@ int main(){
         std::cout << is_floating(element);
     }
     std::cout << std::endl;
+
+    std::cout << "Result : " << calcul(input) << std::endl;
+    
+
+    
 
 }

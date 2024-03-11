@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 
-
 void bubble_sort(std::vector<int> & vec){
     for(int i{0}; i < vec.size(); i++){
         for(int j{0}; j < vec.size() - i - 1; j++){
@@ -122,3 +121,29 @@ int search(std::vector<int> vec, int number){
 
     return indiceOfNumber;
 }
+
+void counting_sort(std::vector<int> & vec, const size_t max){
+
+    std::vector<int> biblio {};
+
+    for(int i{0}; i < max + 1; i++){
+        biblio.push_back(0);
+    }
+
+    for(int number : vec){
+        biblio[number] += 1;
+    }
+
+    std::vector<int> vecResult;
+
+    for(int i{0}; i < max + 1; i++){
+        if(biblio[i] != 0){
+            for(int x{0}; x < biblio[i]; x++){
+                vecResult.push_back(i);
+            }
+        }
+    }
+
+    vec = vecResult;
+}
+

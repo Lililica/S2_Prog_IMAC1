@@ -15,3 +15,6 @@ void merge_sort(std::vector<float> & vec, size_t const left, size_t const right)
 void merge_sort(std::vector<float> & vec);
 
 int search(std::vector<int> vec, int number);
+
+void counting_sort(std::vector<int> & vec, const size_t max);
+

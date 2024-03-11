@@ -123,4 +123,19 @@ int main(){
 
     vecTest = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     std::cout << "Test 5 : " << search(vecTest, 10) << std::endl;
+
+    std::cout << std::endl;
+    std::cout << "--------------------------------------" << std::endl;
+    std::cout << std::endl;
+
+    arrayCopy = array;
+    display_sorted(arrayCopy);
+    
+    std::cout << "Selection by Counting :" << std::endl;
+
+    {    
+        ScopedTimer timer("Chrono pour Tri par Counting");
+        counting_sort(arrayCopy, 100);
+    }
+    display_sorted(arrayCopy);
 }

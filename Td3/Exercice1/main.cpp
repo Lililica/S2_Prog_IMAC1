@@ -43,7 +43,7 @@ void make_the_calcul(std::stack<float> & stack, std::string const& token){
         stack.pop();
     }
     if(token == std::string{"-"}){        
-        resultTemp -= stack.top();
+        resultTemp = stack.top() - resultTemp;
         stack.pop();
     }
     if(token == std::string{"*"}){        
@@ -51,7 +51,7 @@ void make_the_calcul(std::stack<float> & stack, std::string const& token){
         stack.pop();
     }
     if(token == std::string{"/"}){        
-        resultTemp /= stack.top();
+        resultTemp = stack.top() / resultTemp;
         stack.pop();
     }
     if(token == std::string{"^"}){        
@@ -85,11 +85,11 @@ int main(){
     std::cout << "Exercice 1 - Td3" << std::endl;
     std::cout << std::endl;
 
-    std::string input;
+    std::string input = "3 4 11 5 + / +";
 
-    std::cout << "Veuiller rentrer un calcul sous format NPI : ";
-    std::getline(std::cin, input);
-    std::cout << std::endl;
+    // std::cout << "Veuiller rentrer un calcul sous format NPI : ";
+    // std::getline(std::cin, input);
+    // std::cout << std::endl;
 
     std::vector<std::string> mySplitString {split_string(input)};
 

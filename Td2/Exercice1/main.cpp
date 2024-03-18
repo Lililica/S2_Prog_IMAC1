@@ -40,7 +40,7 @@ int main(){
     std::cout << "Exercice 1 - Td2" << std::endl;
     std::cout << std::endl;
 
-    std::vector<int> const array {generate_random_vector(1000)};
+    std::vector<int> const array {generate_random_vector(10000)};
 
     std::vector<int> arrayCopy = array;
     display_sorted(arrayCopy);

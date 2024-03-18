@@ -4,7 +4,7 @@
 #include <sstream>
 #include <iterator>
 #include <cctype>
-#include <queue>
+#include <stack>
 
 std::vector<std::string> split_string(std::string const& s)
 {
@@ -33,33 +33,37 @@ void display_vec(std::vector<std::string> vec){
 
 // enum operator_name {Addition, Soustraction, Multiplication, Division};
 
-void make_the_calcul(std::queue<float> & queue, std::string const& token){
-    float resultTemp = queue.front();
-    queue.pop();
-    int const nbrItemInQueue = queue.size();
-    for(float i{0}; i < nbrItemInQueue; i++){
-        if(token == std::string{"+"}){        
-            resultTemp += queue.front();
-            queue.pop();
-        }
-        if(token == std::string{"-"}){        
-            resultTemp -= queue.front();
-            queue.pop();
-        }
-        if(token == std::string{"*"}){        
-            resultTemp *= queue.front();
-            queue.pop();
-        }
-        if(token == std::string{"/"}){        
-            resultTemp /= queue.front();
-            queue.pop();
-        }
+void make_the_calcul(std::stack<float> & stack, std::string const& token){
+    float resultTemp = stack.top();
+    stack.pop();
+    int const nbrItemInstack = stack.size();
+    
+    if(token == std::string{"+"}){        
+        resultTemp += stack.top();
+        stack.pop();
     }
-    queue.push(resultTemp);
+    if(token == std::string{"-"}){        
+        resultTemp -= stack.top();
+        stack.pop();
+    }
+    if(token == std::string{"*"}){        
+        resultTemp *= stack.top();
+        stack.pop();
+    }
+    if(token == std::string{"/"}){        
+        resultTemp /= stack.top();
+        stack.pop();
+    }
+    if(token == std::string{"^"}){        
+        resultTemp = pow(resultTemp, stack.top());
+        stack.pop();
+    }
+
+    stack.push(resultTemp);
 }
 
 float calcul(std::string const& input){
-    std::queue<float> queue;
+    std::stack<float> stack;
     std::vector<std::string> mySplitString {split_string(input)};
 
     if(mySplitString == std::vector<std::string>{}){
@@ -68,13 +72,13 @@ float calcul(std::string const& input){
 
     for(std::string token : mySplitString){
         if(is_floating(token)){
-            queue.push(std::stof(token));
+            stack.push(std::stof(token));
         }else{
-            make_the_calcul(queue, token);
+            make_the_calcul(stack, token);
         }
     }
 
-    return queue.front();
+    return stack.top();
 }
 
 int main(){

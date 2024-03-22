@@ -124,11 +124,7 @@ int search(std::vector<int> vec, int number){
 
 void counting_sort(std::vector<int> & vec, const size_t max){
 
-    std::vector<int> biblio {};
-
-    for(int i{0}; i < max + 1; i++){
-        biblio.push_back(0);
-    }
+    std::vector<int> biblio (max + 1, 0);
 
     for(int number : vec){
         biblio[number] += 1;
@@ -136,12 +132,14 @@ void counting_sort(std::vector<int> & vec, const size_t max){
 
     std::vector<int> vecResult;
 
-    for(int i{0}; i < max + 1; i++){
+    int i{0};
+    while( i < max + 1){
         if(biblio[i] != 0){
             for(int x{0}; x < biblio[i]; x++){
-                vecResult.push_back(i);
+                vec[i] = i;
             }
         }
+        i++;
     }
 
     vec = vecResult;

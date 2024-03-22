@@ -36,7 +36,6 @@ void display_vec(std::vector<std::string> vec){
 void make_the_calcul(std::stack<float> & stack, std::string const& token){
     float resultTemp = stack.top();
     stack.pop();
-    int const nbrItemInstack = stack.size();
     
     if(token == std::string{"+"}){        
         resultTemp += stack.top();

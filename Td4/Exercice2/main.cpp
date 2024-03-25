@@ -25,6 +25,27 @@ int numberLetterWord(std::string const& mySentence){
     }
 }
 
+std::vector<std::string> split_string(std::string const& str){
+    std::vector<std::string> result;
+    auto it = str.begin();
+
+
+    while(it != str.end()){
+        std::string word;
+        auto newIt = std::find(it, str.end(), char{' '});
+        std::copy(it, newIt, std::back_inserter(word));
+        result.push_back(word);
+        if(newIt == str.end()){
+            break;
+        }
+        it = newIt + 1;
+        
+    }
+    
+    return result;
+
+}
+
 
 int main(){
     std::cout << "Exercice 2 - Td4" << std::endl;
@@ -37,4 +58,12 @@ int main(){
 
     std::cout << std::endl;
     std::cout << numberLetterWord(userAnswer) << std::endl;
+    
+    std::cout << std::endl;
+    std::vector<std::string> haha{split_string(userAnswer)};
+    for(std::string word : haha){
+        std::cout << word << std::endl;
+    }
+    std::cout << std::endl;
+
 }

@@ -5,6 +5,8 @@
 struct Fraction;
 
 
+// Exercice 1 :
+
 Fraction operator+(Fraction const& frac1, Fraction const& frac2){
     Fraction frac1_bis{frac1.numerateur*frac2.denominateur, frac1.denominateur*frac2.denominateur};
     Fraction frac2_bis{frac2.numerateur*frac1.denominateur, frac2.denominateur*frac1.denominateur};
@@ -36,6 +38,23 @@ Fraction operator/(Fraction const& frac1, Fraction const& frac2){
     return simplify(Fraction{frac1.numerateur*frac2.denominateur, frac1.denominateur*frac2.numerateur});
 }
 
+
+
+
+
+
+// Exercice 2 :
+
+void display(Fraction const& frac){
+    std::cout << frac.numerateur << "/" << frac.denominateur << std::endl;
+}
+
+std::ostream& operator<<(std::ostream& os, Fraction const& frac) {
+    return os << frac.numerateur << "/" << frac.denominateur;
+}
+
+// Exercice 3 :
+
 bool operator==(Fraction const& frac1, Fraction const& frac2){
     Fraction frac1b = simplify(frac1);
     Fraction frac2b = simplify(frac2);
@@ -50,14 +69,7 @@ bool operator!=(Fraction const& frac1, Fraction const& frac2){
     return !(frac1==frac2);
 }
 
-
-void display(Fraction const& frac){
-        std::cout << frac.numerateur << "/" << frac.denominateur << std::endl;
-    }
-
-std::ostream& operator<<(std::ostream& os, Fraction const& frac) {
-    return os << frac.numerateur << "/" << frac.denominateur;
-}
+// Exercice 4 :
 
 bool operator<(Fraction const& frac1, Fraction const& frac2){
     float nbrFrac1 {float(frac1.numerateur)/float(frac1.denominateur)};
@@ -83,6 +95,8 @@ bool operator>(Fraction const& frac1, Fraction const& frac2){
 bool operator>=(Fraction const& frac1, Fraction const& frac2){
     return !(frac1<frac2);
 }
+
+// Exercice 5 :
 
 Fraction& Fraction::operator+=(Fraction const& frac){
     Fraction initFrac {numerateur, denominateur};
@@ -120,14 +134,9 @@ Fraction& Fraction::operator/=(Fraction const& frac){
     return *this;
 }
 
-float Fraction::to_float() const{
-    return (static_cast<float>(numerateur)/static_cast<float>(denominateur));
-}
+// Exercice 6 :
 
-Fraction::operator float(){
-    return to_float();
-}
-
+// 1.
 Fraction operator+(const Fraction& f, int const i){
     Fraction frac_bis{i*f.denominateur, f.denominateur};
     return simplify(Fraction{f.numerateur + frac_bis.numerateur, f.denominateur});
@@ -165,6 +174,18 @@ Fraction operator/(int const i,const Fraction& f){
     return simplify(Fraction{f.numerateur, f.denominateur * i});
 }
 
+// 2.
+
+float Fraction::to_float() const{
+    return (static_cast<float>(numerateur)/static_cast<float>(denominateur));
+}
+
+Fraction::operator float(){
+    return to_float();
+}
+
+
+// Pour aller plus loin...
 
 Fraction& Fraction::abs(){
     bool is_Num_Negatif{numerateur < 0};

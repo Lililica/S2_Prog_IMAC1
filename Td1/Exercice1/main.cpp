@@ -38,8 +38,15 @@ int main(){
 
     f1 += f2;
     std::cout << "f1 += f2 : " << f1 << std::endl;
+
     f1 -= f2;
     std::cout << "f1 -= f2 : " << f1 << std::endl;
+
+    f1 *= f2;
+    std::cout << "f1 *= f2 : " << f1 << std::endl;
+    
+    f1 /= f2;
+    std::cout << "f1 /= f2 : " << f1 << std::endl;
 
     std::cout << std::endl;
     std::cout << "Exercice 6 - Td1" << std::endl;

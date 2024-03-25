@@ -102,6 +102,15 @@ int main(){
     }
     display_sorted(arrayCopy);
 
+    std::cout << "Question 1 : Que constatez-vous ?" << std::endl;
+    std::cout << "On constate que notre tri recursif est deja plus rapide que nos premiers algorithmes, 
+    cependant, la fonction standart std::sort reste plus performante que notre fonction recursive." << std::endl;
+
+    std::cout << "Question 2 : Que constatez-vous ?" << std::endl;
+    std::cout << "Les mesures obtenue nous confirme bien la complexite de chaque algorithme. De plus, on peut 
+    supposer que le std::sort utilise un algorithme semblable a la fusion ou au quick..." << std::endl;
+
+
 
     std::cout << std::endl;
     std::cout << "--------------------------------------" << std::endl;

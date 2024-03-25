@@ -11,13 +11,15 @@ void bubble_sort(std::vector<int> & vec){
     }
 }
 
-void selection_sort(std::vector<int> & vec){
+void selection_sort(std::vector<int> & vec){ 
     for(int i{0}; i < vec.size(); i++){
-        for(int j{i+1}; j < vec.size(); j++){
-            if(vec[i] > vec[j]){
-                std::swap(vec[i], vec[j]);
+        int indicePivot{i};
+        for(int j{i}; j < vec.size(); j++){
+            if(vec[j] < vec[indicePivot]){
+                indicePivot = j;
             }
         }
+        std::swap(indicePivot, i);
     }
 }
 

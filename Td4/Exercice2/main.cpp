@@ -6,11 +6,7 @@
 
 auto const is_space = [](char letter){ return letter == ' '; };
 
-std::vector<int> generate_random_vector(size_t const size, int const max = 100) {
-    std::vector<int> vec(size);
-    std::generate(vec.begin(), vec.end(), [&max]() { return std::rand() % max;} );
-    return vec;
-}
+
 
 int numberLetterWord(std::string const& mySentence){
     auto it {std::find(mySentence.begin(), mySentence.end(), char{' '})};

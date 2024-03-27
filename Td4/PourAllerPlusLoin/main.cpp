@@ -12,7 +12,11 @@ std::vector<int> generate_random_vector(size_t const size, int const max = 100) 
     return vec;
 }
 
-auto sumQuad = [](std::vector<int> vec){ return std::accumulate(vec.begin(), vec.end(),0); };
+
+int sumQuad(std::vector<int> vec){
+    std::transform(vec.cbegin(), vec.cend(), vec.begin(), [](int a){return a*a;});
+    return std::accumulate(vec.begin(), vec.end(),0);
+}
 
 auto isPeer = [](int a){ return a%2 == 0;};
 

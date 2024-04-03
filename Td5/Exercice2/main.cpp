@@ -20,7 +20,7 @@ void display_vec(std::vector<float> const& v){
 
 void display_map(std::unordered_map<std::string, std::vector<float>> const& map){
     for(std::unordered_map<std::string, std::vector<float>>::const_iterator it{map.begin()}; it != map.end(); ++it){
-        std::cout << it->first << " : " << accumulate_float(it->second ) << std::endl;
+        std::cout << it->first << " : " << accumulate_float(it->second ) << " euros" << std::endl;
     }
 }
 
@@ -40,6 +40,7 @@ int main(){
 
 
     display_map_init(robots_fixes_map(random_robot));
+    std::cout << "-----------------------------" << std::endl;
     display_map(robots_fixes_map(random_robot));
 
 

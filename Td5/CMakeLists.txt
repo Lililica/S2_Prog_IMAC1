@@ -15,5 +15,6 @@ endfunction(add_exercise)
 
 add_exercise(Exercice1)
 add_exercise(Exercice2)
+add_exercise(Exercice3)
 
 

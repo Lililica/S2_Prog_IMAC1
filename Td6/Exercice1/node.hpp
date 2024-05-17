@@ -21,6 +21,7 @@ struct Node {
 Node* create_node(int value);
 Node*& most_left(Node*& node);
 bool remove(Node*& node, int value);
+bool remove_Fanny(Node*& node, int value);
 void delete_tree(Node* node);
 
 

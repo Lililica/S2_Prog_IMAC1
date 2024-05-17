@@ -114,19 +114,15 @@ bool remove(Node*& node, int value){
             node = nullptr;
             return true;
         }
-        if(node->left == nullptr || node->right == nullptr){
+        else if(node->left == nullptr || node->right == nullptr){
             Node*& leftAdressTemp {node->left};
             delete node;
             node = leftAdressTemp;
             return true;
         }else{
-            Node* newNodeWhichReplaceNode {most_left(node->right)};
-            Node* oldAdressOfLeft {node->left};
-            Node* nodeRight {node->right};
-            delete node;
-            node = nodeRight;
-            newNodeWhichReplaceNode->left = oldAdressOfLeft;
-            return true;
+            Node*& newNodeWhichReplaceNode {most_left(node->right)};
+            node->value = newNodeWhichReplaceNode->value;
+            return remove(newNodeWhichReplaceNode, newNodeWhichReplaceNode->value);
         }
     }else{
         if(value < node->value){
@@ -144,8 +140,9 @@ bool remove(Node*& node, int value){
             
         }
     }
-
 }
+
+
 
 void delete_tree(Node* node){
     if(node->right != nullptr){
